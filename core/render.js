@@ -1,3 +1,5 @@
+import directives from '../core/directives.js'
+
 const html = function(inputs, ...values) {
     return inputs.map( (text, i) => {
         return `${text} ${values[i] || ''}`
@@ -9,7 +11,7 @@ const render = function (component, callback) {
     const { name, data } = component
     const container = document.querySelector(name)
     container.innerHTML = callback(data)
-    console.log(container)
+    directives.init(container, component)
 }
 
 export {

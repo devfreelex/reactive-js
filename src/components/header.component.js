@@ -4,6 +4,7 @@ import template from './header.template.js'
 export default {
     name: 'header-component',
     data: { title: 'Cadastro' },
+    events: ['click', 'mouseover'],
     methods() {
 
         const onInit = () => {
@@ -12,8 +13,13 @@ export default {
             })
         }
 
+        const logger = (e) => {
+            console.log(e.type)
+        }
+
         return {
-            onInit
+            onInit,
+            logger
         }
     }
 }
